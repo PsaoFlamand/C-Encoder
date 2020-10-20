@@ -8,18 +8,18 @@
 using namespace std;
 
 string Encrypt(string secret) {
-    string str3;
+    string result;
     //convert char into its hex equivalent
-    for (int i1 = 0; i1 < secret.length(); i1++) {
+    for (int i = 0; i < secret.length(); i++) {
         stringstream ss;
-        char a = secret[i1];
+        char a = secret[i];
         int ia = a; ////Convert ASCII
         ss << hex << ia + 32; // Convert dec to hex
         string res(ss.str());
-        wchar_t wc = strtol(res.c_str(), NULL, 16); //Convert to unicode     
-        str3.push_back(wc);
+        wchar_t uni = strtol(res.c_str(), NULL, 16); //Convert to unicode     
+        result.push_back(uni);
     }
-    return str3;
+    return result;
 }
 void main()
 {
