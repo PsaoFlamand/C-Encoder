@@ -9,14 +9,12 @@ using namespace std;
 string Encrypt(string secret) {
     string result="";
     char a;
-    for (int i = 0; i < secret.length(); i++) {//If odd, shift letter forward
-        if (i % 2 == 0) {
-            a = secret[i] + i;
-        }
-        else {//If odd, shift letter back
-            a = secret[i] - i;
-        }
-        result.push_back(a);
+    for (int i = 0; i < secret.length(); i++) {
+
+        if (i % 2 == 0) a = secret[i] + i;     //If even, shift letter forward
+        else a = secret[i] - i;                //If odd, shift letter back
+
+        result+=a;
     }
     return result;
 }
@@ -24,13 +22,10 @@ string Decrypt(string truth) {
     string result="";
     char a;
     for (int i = 0; i < truth.length(); i++) {
-        if (i % 2 == 0) { //If even, shift letter back
-            a = truth[i] - i;
-        }
-        else {//If odd, shift letter forward
-            a = truth[i] + i;
-        }
-        result.push_back(a);
+
+        if (i % 2 == 0) a = truth[i] - i;    //If even, shift letter back
+        else a = truth[i] + i;               //If odd, shift letter forward
+        result+=a;
     }
     return result;
 }
