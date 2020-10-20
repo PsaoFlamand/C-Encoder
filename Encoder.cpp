@@ -4,11 +4,10 @@
 #include <sstream>
 #include <stdio.h>
 #include <cstdlib>
-//Substitution Cipher
 using namespace std;
 
 string Encrypt(string secret) {
-    string result;
+    string result="";
     char a;
     for (int i = 0; i < secret.length(); i++) {//If odd, shift letter forward
         if (i % 2 == 0) {
@@ -22,7 +21,7 @@ string Encrypt(string secret) {
     return result;
 }
 string Decrypt(string truth) {
-    string result;
+    string result="";
     char a;
     for (int i = 0; i < truth.length(); i++) {
         if (i % 2 == 0) { //If even, shift letter back
@@ -44,19 +43,30 @@ void main()
     ofstream sourceOutput;
     sourceInput.open("Input.txt");
     sourceOutput.open("Output.txt");
-    while (getline(sourceInput, secrets))
-    {
-     
-        h1 << Encrypt(secrets);
-        secrets = h1.str();
-        h2 << Decrypt(secrets);
-        truth = h2.str();
-
-
+    int choice;
+    cout << "1: Encode" << endl << "2: Decode ->";
+    cin >> choice;
+    //Encode
+    if (choice == 1) {
+        while (getline(sourceInput, secrets))
+        {
+            h1.str(string()); //Clear past contents
+            h1 << Encrypt(secrets);
+            secrets = h1.str();
+            sourceOutput << secrets << endl;
+        }
     }
-    sourceOutput << secrets;
-    cout << secrets<<endl;
-    cout << truth;
+    //Decode
+    else if (choice == 2) {
+        while (getline(sourceInput, truth))
+            {
+                h2.str(string()); //Clear past contents
+                h2 << Decrypt(truth);
+                truth = h2.str();
+                sourceOutput << truth << endl;
+            }
+    }
+    else cout << "Invalid Choice";
     sourceOutput.close();
     sourceInput.close();
 
