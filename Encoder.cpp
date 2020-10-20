@@ -9,6 +9,7 @@ using namespace std;
 const char alphabet[] = { ' ', '!', '"', '#', '$', '%', '&', '\'','(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', 'ˆ', '_', '`','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '}', '~' };
 int chunkSize = 2;
 string results="";
+
 string Encrypt(string secret) {
     string str3;
     unordered_map <char, int> map;
@@ -25,10 +26,8 @@ string Encrypt(string secret) {
         string res(ss.str());                
         results+=res;
     }
-
-    int stringLength = results.length();
     //Now convert chunks of two ints into their unicode equivalent
-    for (int i2 = 0; i2 < stringLength; i2 += chunkSize)
+    for (int i2 = 0; i2 < results.length(); i2 += chunkSize)
     {
         if (i2 + chunkSize > stringLength) {
             chunkSize = stringLength - i2;
