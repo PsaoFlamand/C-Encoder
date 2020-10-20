@@ -26,7 +26,6 @@ void main()
     string secrets;
     stringstream holder;
     ifstream sourceInput;
-    string out;
     ofstream sourceOutput;
     sourceInput.open("Input.txt");
     sourceOutput.open("Output.txt");
