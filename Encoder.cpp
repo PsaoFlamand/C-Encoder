@@ -28,12 +28,12 @@ string Encrypt(string secret) {
 
     int stringLength = results.length();
     //Now convert chunks of two ints into their unicode equivalent
-    for (int i6 = 0; i6 < stringLength; i6 += chunkSize)
+    for (int i2 = 0; i2 < stringLength; i2 += chunkSize)
     {
-        if (i6 + chunkSize > stringLength) {
-            chunkSize = stringLength - i6;
+        if (i2 + chunkSize > stringLength) {
+            chunkSize = stringLength - i2;
         }
-        string str2 = results.substr(i6, chunkSize);
+        string str2 = results.substr(i2, chunkSize);
         stringstream ss2(str2);
         int x = 0;
         ss2 >> x;
@@ -46,7 +46,6 @@ void main()
     string secrets;
     stringstream holder;
     ifstream sourceInput;
-    string out;
     ofstream sourceOutput;
     sourceInput.open("Input.txt");
     sourceOutput.open("Output.txt");
@@ -58,7 +57,6 @@ void main()
         secrets = holder.str();
     }
     sourceOutput << secrets;
-    cout << secrets.length();
     sourceOutput.close();
     sourceInput.close();
  
