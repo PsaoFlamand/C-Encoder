@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <sstream>
 #include <stdio.h>
-#include <cstdlib>
+
 using namespace std;
 
 string Encrypt(string secret) {
