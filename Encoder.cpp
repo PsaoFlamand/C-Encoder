@@ -33,7 +33,6 @@ void main()
 {
     string secrets;
     string truth;
-    stringstream h1,h2;
     ifstream sourceInput;
     ofstream sourceOutput;
     sourceInput.open("Input.txt");
@@ -45,20 +44,14 @@ void main()
     if (choice == 1) {
         while (getline(sourceInput, secrets))
         {
-            h1.str(string()); //Clear past contents
-            h1 << Encrypt(secrets);
-            secrets = h1.str();
-            sourceOutput << secrets << endl;
+            sourceOutput << Encrypt(secrets) << endl;
         }
     }
     //Decode
     else if (choice == 2) {
         while (getline(sourceInput, truth))
             {
-                h2.str(string()); //Clear past contents
-                h2 << Decrypt(truth);
-                truth = h2.str();
-                sourceOutput << truth << endl;
+                sourceOutput << Decrypt(truth) << endl;
             }
     }
     else cout << "Invalid Choice";
